@@ -32,7 +32,7 @@ const Home = () => {
           <div className="pl-4">
             <button
               onClick={() => signIn("google", { callbackUrl: "/" })}
-              className="text-blue-700 px-5 rounded-full ml-1 font-semibold transition-all border border-blue-700 py-1.5 transition-all hover:border-2"
+              className="text-blue-700 px-5 rounded-full ml-1 font-semibold  border border-blue-700 py-1.5 transition-all hover:border-2"
             >
               Sign in
             </button>
