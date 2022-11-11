@@ -5,6 +5,7 @@ import { Avatar } from "@mui/material";
 import { AddRounded, BookmarkOutlined } from "@mui/icons-material";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 const Sidebar = () => {
   const { data: session } = useSession();
@@ -25,9 +26,11 @@ const Sidebar = () => {
         />
 
         <div className="mt-5 py-4 space-x-0.5">
-          <h4 className="hover:underline decoration-purple-700 underline-offset-1 cursor-pointer">
-            {session?.user?.name}
-          </h4>
+          <Link href="/profile">
+            <a className="hover:underline decoration-purple-700 underline-offset-1 cursor-pointer">
+              {session?.user?.name}
+            </a>
+          </Link>
           <p className="text-black/60 dark:text-white/75 text-sm">
             {session?.user?.email}
           </p>

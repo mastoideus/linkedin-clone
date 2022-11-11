@@ -5,6 +5,7 @@ import { SearchRounded } from "@mui/icons-material";
 import inLogoBlack from "../public/images/inLogoBlack.png";
 import inLogoBlue from "../public/images/inLogoBlue.png";
 import HeaderLink from "./HeaderLink";
+import Link from "next/link";
 import GroupIcon from "@mui/icons-material/Group";
 import { Avatar } from "@mui/material";
 import { motion } from "framer-motion";
@@ -26,6 +27,57 @@ const spring = {
 const Header = () => {
   const [mounted, setMounted] = useState();
   const { setTheme, resolvedTheme, theme } = useTheme();
+  const [openMeDropdown, setOpenMeDropdown] = useState(false);
+
+  const openMeDropdownHandler = () => {
+    setOpenMeDropdown((prevState) => !prevState);
+  };
+
+  const dropdownContent = (
+    <div
+      className="bg-gray-50 divide-y dark:divide-gray-500 overflow-ellipsis space-y-3 w-[320px] h-[340px] hidden md:inline-block 
+    rounded-l-lg rounded-br-lg p-4  top-12 lg:top-14 right-0 absolute shadow-lg dark:bg-[#1D2226]  "
+    >
+      <div>
+        <div className="flex items-center relative gap-x-3 max-w-[50px]">
+          <Avatar className="relative -top-[10px]" />
+          <div className="">
+            <p className="font-semibold text-md">Anel Zubčević</p>
+            <div className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="">Front-end developer |</p>
+              <p className="">HTML,CSS,JavaScript,React.js,Next.js,Git</p>
+            </div>
+          </div>
+        </div>
+        <button
+          className=" rounded-full w-[100%] font-semibold py-0 bg-white dark:bg-gray-300  mt-4 
+        border border-blue-500 text-blue-600 hover:border-blue-700 "
+        >
+          <Link href="/profile">View Profile</Link>
+        </button>
+      </div>
+      <div>
+        <p className="font-semibold dark:text-gray-300">Account</p>
+        <div className="text-sm text-gray-500">
+          <p>Settings & Privacy</p>
+          <p>Help</p>
+          <p>Language</p>
+        </div>
+      </div>
+      <div>
+        <p className="font-semibold dark:text-gray-300">Manage</p>
+        <div className="text-sm text-gray-500">
+          <p>Posts</p>
+          <p>Activity</p>
+        </div>
+      </div>
+      <div>
+        <button className="border-none outline-none dark:text-gray-300 ">
+          Sign out
+        </button>
+      </div>
+    </div>
+  );
 
   useEffect(() => {
     setMounted(true);
@@ -58,7 +110,18 @@ const Header = () => {
           <HeaderLink Icon={BusinessCenter} text="Jobs" feed hidden />
           <HeaderLink Icon={Chat} text="Messaging" feed />
           <HeaderLink Icon={Notifications} text="Notifications" feed />
-          <HeaderLink Icon={Avatar} avatar text="Me" hidden feed />
+          <div className="relative">
+            <HeaderLink
+              Icon={Avatar}
+              avatar
+              text="Me"
+              hidden
+              feed
+              onClick={openMeDropdownHandler}
+              dropdown={openMeDropdown}
+            />
+            {openMeDropdown && dropdownContent}
+          </div>
         </div>
         <div className="pl-8 pr-6">
           <HeaderLink Icon={AppsOutlined} text="Work" feed hidden />

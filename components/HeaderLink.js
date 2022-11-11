@@ -1,8 +1,19 @@
 import React from "react";
+import Link from "next/link";
 
-const HeaderLink = ({ Icon, text, avatar, feed, active, hidden }) => {
+const HeaderLink = ({
+  Icon,
+  text,
+  avatar,
+  feed,
+  active,
+  hidden,
+
+  onClick,
+}) => {
   return (
     <div
+      onClick={onClick}
       className={`${
         hidden && "hidden md:inline-flex"
       } cursor-pointer flex flex-col justify-center items-center 
@@ -20,6 +31,7 @@ const HeaderLink = ({ Icon, text, avatar, feed, active, hidden }) => {
       >
         {text}
       </h4>
+
       {active && (
         <span className="hidden lg:inline-flex h-0.5 w-[calc(100%+20px)] bg-black dark:bg-white dark:-mt-2 rounded-t-full"></span>
       )}

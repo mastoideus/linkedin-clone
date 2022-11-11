@@ -25,4 +25,13 @@
     cursor-pointer hover:bg-black/10 dark:hover:bg-black/20 
     w-full rounded py-2.5 transition ease-out font-medium;
   }
+  .profileBtn {
+    @apply rounded-full px-2 py-1 text-center font-semibold text-base bg-blue-600 text-blue-50 flex-grow;
+  }
+  .adjustBgIcon {
+    @apply bg-transparent p-3 border border-gray-300/75 hover:border-gray-500  dark:border-white/75 dark:hover:border-gray-600 rounded-full cursor-pointer text-black/75;
+  }
+  .profileContainer {
+    @apply max-w-[1000px] md:mx-auto bg-white dark:bg-black shadow-md  sm:rounded-lg sm:overflow-hidden sm:dark:border dark:border-gray-700;
+  }
 }

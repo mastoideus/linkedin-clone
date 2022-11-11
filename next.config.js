@@ -5,7 +5,13 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ["rb.gy", "rockcontent.com"],
+    domains: [
+      "rb.gy",
+      "rockcontent.com",
+      "capljina-mladi.info",
+      "d585tldpucybw.cloudfront.net",
+      "imageio.forbes.com",
+    ],
   },
   nextConfig,
 };

@@ -32,8 +32,7 @@ export default function Home({ posts, articles }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-
-      <main className="flex  justify-center gap-x-5 px-4 sm:px-12">
+      <main className="flex  justify-center gap-x-5 px-4 sm:px-12 mt-6">
         <div className="flex flex-col md:flex-row gap-5">
           <Sidebar />
           <Feed posts={posts} />
